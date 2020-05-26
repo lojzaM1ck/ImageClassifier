@@ -110,7 +110,7 @@ def train_model(model, dataloaders, criterion, optimizer, epochs, gpu):
             accuracy = 0
             model.eval()
             with torch.no_grad():
-                for inputs, labels in dataloaders['testloader']:
+                for inputs, labels in dataloaders['validloader']:
                     inputs, labels = inputs.to(device), labels.to(device)
                     logps = model.forward(inputs)
                     batch_loss = criterion(logps, labels)
@@ -125,8 +125,8 @@ def train_model(model, dataloaders, criterion, optimizer, epochs, gpu):
                     
             print(f"Epoch {epoch+1}/{epochs}.. "
                   f"Train loss: {running_loss/print_every:.3f}.. "
-                  f"Test loss: {test_loss/len(dataloaders['testloader']):.3f}.. "
-                  f"Test accuracy: {accuracy/len(dataloaders['testloader']):.3f}")
+                  f"Validation loss: {test_loss/len(dataloaders['validloader']):.3f}.. "
+                  f"Validation accuracy: {accuracy/len(dataloaders['validloader']):.3f}")
             running_loss = 0
             model.train()
     return model
