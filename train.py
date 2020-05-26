@@ -8,7 +8,7 @@ parser.add_argument('--save_dir', type=str, default='checkpoint.pth', help='save
 parser.add_argument('--gpu', type=bool, default='True', help='True = gpu, False = cpu')
 parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
 parser.add_argument('--epochs', type=int, default=1, help='num of epochs')
-parser.add_argument('--arch', type=str, default='vgg16', help='architecture: vgg16, resnet, alexnet')
+parser.add_argument('--arch', type=str, default='vgg16', help='architecture: vgg16, densenet121, alexnet')
 parser.add_argument('--batch_size', type=int, default=32,help='bacht size')
 parser.add_argument('--hidden_units', type=int, default=1024, help='hidden units for layer')
 
